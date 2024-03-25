@@ -10,8 +10,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "files": [],
-  "include": [],
+  "files": [ ],
+  "include": [ ],
   "references": [
     {
       "path": "./tsconfig.editor.json"
