@@ -20,16 +20,34 @@ jobs:
 
       - run: corepack enable
 
-      #- name: Start CI run
-      #  run: yarn nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
-
-      # Cache node_modules
       - uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'yarn'
+
+      - name: Restore cached npm dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+              node_modules
+          # ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('yarn.lock') }}
+
       - run: yarn install --immutable
-      - uses: nrwl/nx-set-shas@v4
+
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+              node_modules
+#              ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('yarn.lock') }}
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
 
       - run: yarn nx-cloud record -- nx format:check
-      - run: yarn nx affected -t lint test build e2e-ci
+      # This line is needed for nx affected to work when CI is running on a PR
+      - run: git branch --track main origin/main
+      - run: yarn nx affected -t lint test build --parallel=3
+      - run: yarn nx affected -t e2e-ci --parallel=1
