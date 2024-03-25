@@ -52,7 +52,7 @@
     "nx": "18.1.2",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "typescript": "~5.3.2"
   },
   "packageManager": "yarn@3.6.3+sha256.08ead1821a257416e6f217e89365425bf4b6d2430c3279318bedcec1a245fff5"
