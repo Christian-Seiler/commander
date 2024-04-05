@@ -2079,7 +2079,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.13.2
     eslint: ~8.48.0
     eslint-config-prettier: ^9.0.0
-    eslint-plugin-playwright: ^0.15.3
+    eslint-plugin-playwright: ^0.22.0
     jest: ^29.4.1
     jest-environment-jsdom: ^29.4.1
     jest-preset-angular: ~14.0.3
@@ -7183,16 +7183,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-playwright@npm:^0.15.3":
-  version: 0.15.3
-  resolution: "eslint-plugin-playwright@npm:0.15.3"
+"eslint-plugin-playwright@npm:^0.22.0":
+  version: 0.22.2
+  resolution: "eslint-plugin-playwright@npm:0.22.2"
+  dependencies:
+    globals: ^13.23.0
   peerDependencies:
     eslint: ">=7"
     eslint-plugin-jest: ">=25"
   peerDependenciesMeta:
     eslint-plugin-jest:
       optional: true
-  checksum: 5dff7f1d8346dac41980197ce24f2629f09acc44b612c38a6859cb31d5dc29caa4d9a09fec0b10443bae7ebc4b79d4c926dca284707bae729469016ce9f1dbfc
+  checksum: 4e62074a2d67c834e25e39dad655a868b7852edb3d1e5b555906f47fe0e351a9e7d2cb9a0d826e3f5af035d07d85992ba3773e03cac6d69279b62062a632ee18
   languageName: node
   linkType: hard
 
@@ -7983,7 +7985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.19.0":
+"globals@npm:^13.19.0, globals@npm:^13.23.0":
   version: 13.24.0
   resolution: "globals@npm:13.24.0"
   dependencies:
